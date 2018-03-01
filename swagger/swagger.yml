@@ -1,0 +1,1042 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /atributo_lugar/:
+    get:
+      tags:
+      - atributo_lugar
+      description: get AtributoLugar
+      operationId: AtributoLugarController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.AtributoLugar'
+        "403": {}
+    post:
+      tags:
+      - atributo_lugar
+      description: create AtributoLugar
+      operationId: AtributoLugarController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for AtributoLugar content
+        required: true
+        schema:
+          $ref: '#/definitions/models.AtributoLugar'
+      responses:
+        "201":
+          description: '{int} models.AtributoLugar'
+        "403":
+          description: body is empty
+  /atributo_lugar/{id}:
+    get:
+      tags:
+      - atributo_lugar
+      description: get AtributoLugar by id
+      operationId: AtributoLugarController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.AtributoLugar'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - atributo_lugar
+      description: update the AtributoLugar
+      operationId: AtributoLugarController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for AtributoLugar content
+        required: true
+        schema:
+          $ref: '#/definitions/models.AtributoLugar'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.AtributoLugar'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - atributo_lugar
+      description: delete the AtributoLugar
+      operationId: AtributoLugarController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /lugar/:
+    get:
+      tags:
+      - lugar
+      description: get Lugar
+      operationId: LugarController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Lugar'
+        "403": {}
+    post:
+      tags:
+      - lugar
+      description: create Lugar
+      operationId: LugarController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Lugar content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Lugar'
+      responses:
+        "201":
+          description: '{int} models.Lugar'
+        "403":
+          description: body is empty
+  /lugar/{id}:
+    get:
+      tags:
+      - lugar
+      description: get Lugar by id
+      operationId: LugarController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Lugar'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - lugar
+      description: update the Lugar
+      operationId: LugarController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Lugar content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Lugar'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Lugar'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - lugar
+      description: delete the Lugar
+      operationId: LugarController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /lugar_ubicacion/:
+    get:
+      tags:
+      - lugar_ubicacion
+      description: get LugarUbicacion
+      operationId: LugarUbicacionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.LugarUbicacion'
+        "403": {}
+    post:
+      tags:
+      - lugar_ubicacion
+      description: create LugarUbicacion
+      operationId: LugarUbicacionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for LugarUbicacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.LugarUbicacion'
+      responses:
+        "201":
+          description: '{int} models.LugarUbicacion'
+        "403":
+          description: body is empty
+  /lugar_ubicacion/{id}:
+    get:
+      tags:
+      - lugar_ubicacion
+      description: get LugarUbicacion by id
+      operationId: LugarUbicacionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.LugarUbicacion'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - lugar_ubicacion
+      description: update the LugarUbicacion
+      operationId: LugarUbicacionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for LugarUbicacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.LugarUbicacion'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.LugarUbicacion'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - lugar_ubicacion
+      description: delete the LugarUbicacion
+      operationId: LugarUbicacionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /relacion_lugares/:
+    get:
+      tags:
+      - relacion_lugares
+      description: get RelacionLugares
+      operationId: RelacionLugaresController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.RelacionLugares'
+        "403": {}
+    post:
+      tags:
+      - relacion_lugares
+      description: create RelacionLugares
+      operationId: RelacionLugaresController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for RelacionLugares content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RelacionLugares'
+      responses:
+        "201":
+          description: '{int} models.RelacionLugares'
+        "403":
+          description: body is empty
+  /relacion_lugares/{id}:
+    get:
+      tags:
+      - relacion_lugares
+      description: get RelacionLugares by id
+      operationId: RelacionLugaresController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.RelacionLugares'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - relacion_lugares
+      description: update the RelacionLugares
+      operationId: RelacionLugaresController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for RelacionLugares content
+        required: true
+        schema:
+          $ref: '#/definitions/models.RelacionLugares'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.RelacionLugares'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - relacion_lugares
+      description: delete the RelacionLugares
+      operationId: RelacionLugaresController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /tipo_lugar/:
+    get:
+      tags:
+      - tipo_lugar
+      description: get TipoLugar
+      operationId: TipoLugarController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.TipoLugar'
+        "403": {}
+    post:
+      tags:
+      - tipo_lugar
+      description: create TipoLugar
+      operationId: TipoLugarController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for TipoLugar content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoLugar'
+      responses:
+        "201":
+          description: '{int} models.TipoLugar'
+        "403":
+          description: body is empty
+  /tipo_lugar/{id}:
+    get:
+      tags:
+      - tipo_lugar
+      description: get TipoLugar by id
+      operationId: TipoLugarController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.TipoLugar'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - tipo_lugar
+      description: update the TipoLugar
+      operationId: TipoLugarController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for TipoLugar content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoLugar'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.TipoLugar'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - tipo_lugar
+      description: delete the TipoLugar
+      operationId: TipoLugarController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /tipo_relacion_lugar/:
+    get:
+      tags:
+      - tipo_relacion_lugar
+      description: get TipoRelacionLugar
+      operationId: TipoRelacionLugarController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.TipoRelacionLugar'
+        "403": {}
+    post:
+      tags:
+      - tipo_relacion_lugar
+      description: create TipoRelacionLugar
+      operationId: TipoRelacionLugarController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for TipoRelacionLugar content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoRelacionLugar'
+      responses:
+        "201":
+          description: '{int} models.TipoRelacionLugar'
+        "403":
+          description: body is empty
+  /tipo_relacion_lugar/{id}:
+    get:
+      tags:
+      - tipo_relacion_lugar
+      description: get TipoRelacionLugar by id
+      operationId: TipoRelacionLugarController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.TipoRelacionLugar'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - tipo_relacion_lugar
+      description: update the TipoRelacionLugar
+      operationId: TipoRelacionLugarController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for TipoRelacionLugar content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoRelacionLugar'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.TipoRelacionLugar'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - tipo_relacion_lugar
+      description: delete the TipoRelacionLugar
+      operationId: TipoRelacionLugarController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /ubicacion/:
+    get:
+      tags:
+      - ubicacion
+      description: get Ubicacion
+      operationId: UbicacionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Ubicacion'
+        "403": {}
+    post:
+      tags:
+      - ubicacion
+      description: create Ubicacion
+      operationId: UbicacionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Ubicacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Ubicacion'
+      responses:
+        "201":
+          description: '{int} models.Ubicacion'
+        "403":
+          description: body is empty
+  /ubicacion/{id}:
+    get:
+      tags:
+      - ubicacion
+      description: get Ubicacion by id
+      operationId: UbicacionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Ubicacion'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - ubicacion
+      description: update the Ubicacion
+      operationId: UbicacionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Ubicacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Ubicacion'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Ubicacion'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - ubicacion
+      description: delete the Ubicacion
+      operationId: UbicacionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /valor_atributo_lugar/:
+    get:
+      tags:
+      - valor_atributo_lugar
+      description: get ValorAtributoLugar
+      operationId: ValorAtributoLugarController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ValorAtributoLugar'
+        "403": {}
+    post:
+      tags:
+      - valor_atributo_lugar
+      description: create ValorAtributoLugar
+      operationId: ValorAtributoLugarController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for ValorAtributoLugar content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ValorAtributoLugar'
+      responses:
+        "201":
+          description: '{int} models.ValorAtributoLugar'
+        "403":
+          description: body is empty
+  /valor_atributo_lugar/{id}:
+    get:
+      tags:
+      - valor_atributo_lugar
+      description: get ValorAtributoLugar by id
+      operationId: ValorAtributoLugarController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ValorAtributoLugar'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - valor_atributo_lugar
+      description: update the ValorAtributoLugar
+      operationId: ValorAtributoLugarController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for ValorAtributoLugar content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ValorAtributoLugar'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.ValorAtributoLugar'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - valor_atributo_lugar
+      description: delete the ValorAtributoLugar
+      operationId: ValorAtributoLugarController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+definitions:
+  models.AtributoLugar:
+    title: AtributoLugar
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      CodigoAbreviacion:
+        type: string
+      Descripcion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+      NumeroOrden:
+        type: number
+        format: double
+  models.Lugar:
+    title: Lugar
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+      TipoLugar:
+        $ref: '#/definitions/models.TipoLugar'
+  models.LugarUbicacion:
+    title: LugarUbicacion
+    type: object
+    properties:
+      Id:
+        type: integer
+        format: int64
+      Lugar:
+        $ref: '#/definitions/models.Lugar'
+      Ubicacion:
+        $ref: '#/definitions/models.Ubicacion'
+  models.RelacionLugares:
+    title: RelacionLugares
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      Id:
+        type: integer
+        format: int64
+      LugarHijo:
+        $ref: '#/definitions/models.Lugar'
+      LugarPadre:
+        $ref: '#/definitions/models.Lugar'
+      TipoRelacionLugar:
+        $ref: '#/definitions/models.TipoRelacionLugar'
+  models.TipoLugar:
+    title: TipoLugar
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      CodigoAbreviacion:
+        type: string
+      Descripcion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+      NumeroOrden:
+        type: number
+        format: double
+  models.TipoRelacionLugar:
+    title: TipoRelacionLugar
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      CodigoAbreviacion:
+        type: string
+      Descripcion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+      NumeroOrden:
+        type: number
+        format: double
+  models.Ubicacion:
+    title: Ubicacion
+    type: object
+    properties:
+      Direccion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+  models.ValorAtributoLugar:
+    title: ValorAtributoLugar
+    type: object
+    properties:
+      AtributoLugar:
+        $ref: '#/definitions/models.AtributoLugar'
+      Id:
+        type: integer
+        format: int64
+      Lugar:
+        $ref: '#/definitions/models.Lugar'
+      Valor:
+        type: string
+tags:
+- name: tipo_lugar
+  description: |
+    TipoLugarController operations for TipoLugar
+- name: ubicacion
+  description: |
+    UbicacionController operations for Ubicacion
+- name: lugar_ubicacion
+  description: |
+    LugarUbicacionController operations for LugarUbicacion
+- name: atributo_lugar
+  description: |
+    AtributoLugarController operations for AtributoLugar
+- name: valor_atributo_lugar
+  description: |
+    ValorAtributoLugarController operations for ValorAtributoLugar
+- name: tipo_relacion_lugar
+  description: |
+    TipoRelacionLugarController operations for TipoRelacionLugar
+- name: lugar
+  description: |
+    LugarController operations for Lugar
+- name: relacion_lugares
+  description: |
+    RelacionLugaresController operations for RelacionLugares
