@@ -49,7 +49,7 @@ func GetRelacionLugaresById(id int) (v *RelacionLugares, err error) {
 func GetAllRelacionLugares(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(RelacionLugares))
+	qs := o.QueryTable(new(RelacionLugares)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
