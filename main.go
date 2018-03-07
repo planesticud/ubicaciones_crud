@@ -33,6 +33,10 @@ func main() {
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}))
-	logs.SetLogger(logs.AdapterFile, `{"filename":"/var/log/beego/ubicacionesCrud.log"}`)
+
+	logPath := "{\"filename\":\""
+	logPath += beego.AppConfig.String("logPath")
+	logPath += "\"}"
+	logs.SetLogger(logs.AdapterFile, logPath)
 	beego.Run()
 }
