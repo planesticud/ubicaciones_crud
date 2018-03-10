@@ -10,6 +10,7 @@ build:
      - go get -t
      - GOOS=linux GOARCH=amd64 go build -o main
      - go test ./... -cover
+     - echo '<!DOCTYPE html><html><body><h1>STATE</h1><p>runnig</p></body></html>' > index.html
     when:
       branch: develop
       event: push
