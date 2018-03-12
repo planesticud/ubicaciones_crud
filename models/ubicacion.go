@@ -11,7 +11,7 @@ import (
 
 type Ubicacion struct {
 	Id        int    `orm:"column(id);pk;auto"`
-	Direccion string `orm:"column(direccion);null"`
+	Direccion string `orm:"column(direccion)"`
 }
 
 func (t *Ubicacion) TableName() string {
