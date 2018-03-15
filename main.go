@@ -39,6 +39,7 @@ func main() {
 	logPath += beego.AppConfig.String("logPath")
 	logPath += "\"}"
 	logs.SetLogger(logs.AdapterFile, logPath)
+
 	apistatus.Init()
 	beego.Run()
 }
