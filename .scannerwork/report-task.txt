@@ -1,0 +1,6 @@
+projectKey=scanner:api_ubicaciones:0.01
+serverUrl=http://localhost:9000
+serverVersion=7.0.0.36138
+dashboardUrl=http://localhost:9000/dashboard/index/scanner:api_ubicaciones:0.01
+ceTaskId=AWK7aOPMEi6qNWeBimzY
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWK7aOPMEi6qNWeBimzY
