@@ -22,12 +22,6 @@ func init() {
 			),
 		),
 
-		beego.NSNamespace("/ubicacion",
-			beego.NSInclude(
-				&controllers.UbicacionController{},
-			),
-		),
-
 		beego.NSNamespace("/lugar_ubicacion",
 			beego.NSInclude(
 				&controllers.LugarUbicacionController{},

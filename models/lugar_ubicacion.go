@@ -10,9 +10,11 @@ import (
 )
 
 type LugarUbicacion struct {
-	Id        int        `orm:"column(id);pk;auto"`
-	Lugar     *Lugar     `orm:"column(lugar);rel(fk)"`
-	Ubicacion *Ubicacion `orm:"column(ubicacion);rel(fk)"`
+	Id           int    `orm:"column(id);pk;auto"`
+	Lugar        *Lugar `orm:"column(lugar);rel(fk)"`
+	Direccion    string `orm:"column(direccion);null"`
+	CodigoPostal string `orm:"column(codigo_postal);null"`
+	Estrato      int16  `orm:"column(estrato);null"`
 }
 
 func (t *LugarUbicacion) TableName() string {

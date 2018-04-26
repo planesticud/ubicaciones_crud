@@ -45,9 +45,11 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.AtributoLugar'
-        "403": {}
+        "403":
+          description: ""
     post:
       tags:
       - atributo_lugar
@@ -79,6 +81,7 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.AtributoLugar'
         "403":
@@ -102,6 +105,7 @@ paths:
           $ref: '#/definitions/models.AtributoLugar'
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.AtributoLugar'
         "403":
@@ -156,9 +160,11 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.Lugar'
-        "403": {}
+        "403":
+          description: ""
     post:
       tags:
       - lugar
@@ -190,6 +196,7 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.Lugar'
         "403":
@@ -213,6 +220,7 @@ paths:
           $ref: '#/definitions/models.Lugar'
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.Lugar'
         "403":
@@ -267,9 +275,11 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.LugarUbicacion'
-        "403": {}
+        "403":
+          description: ""
     post:
       tags:
       - lugar_ubicacion
@@ -301,6 +311,7 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.LugarUbicacion'
         "403":
@@ -324,6 +335,7 @@ paths:
           $ref: '#/definitions/models.LugarUbicacion'
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.LugarUbicacion'
         "403":
@@ -378,9 +390,11 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.RelacionLugares'
-        "403": {}
+        "403":
+          description: ""
     post:
       tags:
       - relacion_lugares
@@ -412,6 +426,7 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.RelacionLugares'
         "403":
@@ -435,6 +450,7 @@ paths:
           $ref: '#/definitions/models.RelacionLugares'
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.RelacionLugares'
         "403":
@@ -489,9 +505,11 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.TipoLugar'
-        "403": {}
+        "403":
+          description: ""
     post:
       tags:
       - tipo_lugar
@@ -523,6 +541,7 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.TipoLugar'
         "403":
@@ -546,6 +565,7 @@ paths:
           $ref: '#/definitions/models.TipoLugar'
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.TipoLugar'
         "403":
@@ -600,9 +620,11 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.TipoRelacionLugar'
-        "403": {}
+        "403":
+          description: ""
     post:
       tags:
       - tipo_relacion_lugar
@@ -634,6 +656,7 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.TipoRelacionLugar'
         "403":
@@ -657,6 +680,7 @@ paths:
           $ref: '#/definitions/models.TipoRelacionLugar'
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.TipoRelacionLugar'
         "403":
@@ -666,117 +690,6 @@ paths:
       - tipo_relacion_lugar
       description: delete the TipoRelacionLugar
       operationId: TipoRelacionLugarController.Delete
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to delete
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} delete success!'
-        "403":
-          description: id is empty
-  /ubicacion/:
-    get:
-      tags:
-      - ubicacion
-      description: get Ubicacion
-      operationId: UbicacionController.Get All
-      parameters:
-      - in: query
-        name: query
-        description: Filter. e.g. col1:v1,col2:v2 ...
-        type: string
-      - in: query
-        name: fields
-        description: Fields returned. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: sortby
-        description: Sorted-by fields. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
-        type: string
-      - in: query
-        name: limit
-        description: Limit the size of result set. Must be an integer
-        type: string
-      - in: query
-        name: offset
-        description: Start position of result set. Must be an integer
-        type: string
-      responses:
-        "200":
-          schema:
-            $ref: '#/definitions/models.Ubicacion'
-        "403": {}
-    post:
-      tags:
-      - ubicacion
-      description: create Ubicacion
-      operationId: UbicacionController.Post
-      parameters:
-      - in: body
-        name: body
-        description: body for Ubicacion content
-        required: true
-        schema:
-          $ref: '#/definitions/models.Ubicacion'
-      responses:
-        "201":
-          description: '{int} models.Ubicacion'
-        "403":
-          description: body is empty
-  /ubicacion/{id}:
-    get:
-      tags:
-      - ubicacion
-      description: get Ubicacion by id
-      operationId: UbicacionController.Get One
-      parameters:
-      - in: path
-        name: id
-        description: The key for staticblock
-        required: true
-        type: string
-      responses:
-        "200":
-          schema:
-            $ref: '#/definitions/models.Ubicacion'
-        "403":
-          description: :id is empty
-    put:
-      tags:
-      - ubicacion
-      description: update the Ubicacion
-      operationId: UbicacionController.Put
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to update
-        required: true
-        type: string
-      - in: body
-        name: body
-        description: body for Ubicacion content
-        required: true
-        schema:
-          $ref: '#/definitions/models.Ubicacion'
-      responses:
-        "200":
-          schema:
-            $ref: '#/definitions/models.Ubicacion'
-        "403":
-          description: :id is not int
-    delete:
-      tags:
-      - ubicacion
-      description: delete the Ubicacion
-      operationId: UbicacionController.Delete
       parameters:
       - in: path
         name: id
@@ -822,9 +735,11 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.ValorAtributoLugar'
-        "403": {}
+        "403":
+          description: ""
     post:
       tags:
       - valor_atributo_lugar
@@ -856,6 +771,7 @@ paths:
         type: string
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.ValorAtributoLugar'
         "403":
@@ -879,6 +795,7 @@ paths:
           $ref: '#/definitions/models.ValorAtributoLugar'
       responses:
         "200":
+          description: ""
           schema:
             $ref: '#/definitions/models.ValorAtributoLugar'
         "403":
@@ -935,13 +852,18 @@ definitions:
     title: LugarUbicacion
     type: object
     properties:
+      CodigoPostal:
+        type: string
+      Direccion:
+        type: string
+      Estrato:
+        type: integer
+        format: int32
       Id:
         type: integer
         format: int64
       Lugar:
         $ref: '#/definitions/models.Lugar'
-      Ubicacion:
-        $ref: '#/definitions/models.Ubicacion'
   models.RelacionLugares:
     title: RelacionLugares
     type: object
@@ -993,15 +915,6 @@ definitions:
       NumeroOrden:
         type: number
         format: double
-  models.Ubicacion:
-    title: Ubicacion
-    type: object
-    properties:
-      Direccion:
-        type: string
-      Id:
-        type: integer
-        format: int64
   models.ValorAtributoLugar:
     title: ValorAtributoLugar
     type: object
@@ -1019,9 +932,6 @@ tags:
 - name: tipo_lugar
   description: |
     TipoLugarController operations for TipoLugar
-- name: ubicacion
-  description: |
-    UbicacionController operations for Ubicacion
 - name: lugar_ubicacion
   description: |
     LugarUbicacionController operations for LugarUbicacion
