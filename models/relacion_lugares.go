@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"reflect"
+	"strconv"
 	"strings"
 
 	"github.com/astaxie/beego/orm"
@@ -150,4 +151,53 @@ func DeleteRelacionLugares(id int) (err error) {
 		}
 	}
 	return
+}
+
+// GetRelacionesPadre retrieves padre de un lugar
+func GetRelacionesPadre(id int) (v []RelacionLugares) {
+	o := orm.NewOrm()
+	if _, err := o.Raw(`Select lugar_padre,lugar_hijo from core_new.relacion_lugares 
+		where lugar_hijo=` + strconv.Itoa(id)).QueryRows(&v); err == nil {
+	}
+	return v
+}
+
+// GetJerarquiaLugarById retrieves JerarquiaLugar by Id. Returns error if
+func GetJerarquiaLugarById(id int) (v map[string]interface{}, err error) {
+
+	var relacionesLugares []RelacionLugares
+	var resultado map[string]interface{}
+	resultado = make(map[string]interface{})
+
+	//buscar en lugar el Id de tipo_lugar
+	o := orm.NewOrm()
+	lugar := &Lugar{Id: id}
+	if err = o.Read(lugar); err == nil {
+		if _, err := o.Raw(`Select lugar_padre,lugar_hijo from core_new.relacion_lugares 
+			where lugar_hijo=` + strconv.Itoa(id)).QueryRows(&relacionesLugares); err == nil {
+			if relacionesLugares == nil { //no tiene padre
+				o.Read(lugar.TipoLugar)
+				resultado[lugar.TipoLugar.Nombre] = lugar
+			} else {
+				for relacionesLugares != nil {
+					lugar := Lugar{Id: relacionesLugares[0].LugarHijo.Id}
+					err = o.Read(&lugar)
+					o.Read(lugar.TipoLugar)
+					resultado[lugar.TipoLugar.Nombre] = lugar
+					padre := relacionesLugares[0].LugarPadre.Id
+					relacionesLugares = GetRelacionesPadre(relacionesLugares[0].LugarPadre.Id)
+
+					if relacionesLugares == nil {
+						lugar := Lugar{Id: padre}
+						err = o.Read(&lugar)
+						o.Read(lugar.TipoLugar)
+						resultado[lugar.TipoLugar.Nombre] = lugar
+					}
+				}
+			}
+
+		}
+		return resultado, nil
+	}
+	return nil, err
 }

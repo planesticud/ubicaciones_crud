@@ -445,6 +445,32 @@
                 }
             }
         },
+        "/relacion_lugares/jerarquia_lugar/{id}": {
+            "get": {
+                "tags": [
+                    "relacion_lugares"
+                ],
+                "description": "get Jerarquia Lugar by id",
+                "operationId": "RelacionLugaresController.Get Jerarquia Lugar",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{}"
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            }
+        },
         "/relacion_lugares/{id}": {
             "get": {
                 "tags": [

@@ -24,6 +24,7 @@ func (c *RelacionLugaresController) URLMapping() {
 	c.Mapping("GetAll", c.GetAll)
 	c.Mapping("Put", c.Put)
 	c.Mapping("Delete", c.Delete)
+	c.Mapping("GetJerarquiaLugar", c.GetJerarquiaLugar)
 }
 
 // Post ...
@@ -175,6 +176,24 @@ func (c *RelacionLugaresController) Delete() {
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteRelacionLugares(id); err == nil {
 		c.Data["json"] = models.Alert{Type: "success", Code: "S_200", Body: "OK"}
+	} else {
+		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
+	}
+	c.ServeJSON()
+}
+
+// GetJerarquiaLugar ...
+// @Title Get Jerarquia Lugar
+// @Description get Jerarquia Lugar by id
+// @Param	id		path 	string	true		"The key for staticblock"
+// @Success 200 {}
+// @Failure 403 :id is empty
+// @router /jerarquia_lugar/:id [get]
+func (c *RelacionLugaresController) GetJerarquiaLugar() {
+	idStr := c.Ctx.Input.Param(":id")
+	id, _ := strconv.Atoi(idStr)
+	if v, err := models.GetJerarquiaLugarById(id); err == nil {
+		c.Data["json"] = v
 	} else {
 		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
 	}
