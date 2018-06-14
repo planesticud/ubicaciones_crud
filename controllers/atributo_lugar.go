@@ -36,13 +36,16 @@ func (c *AtributoLugarController) URLMapping() {
 func (c *AtributoLugarController) Post() {
 	var v models.AtributoLugar
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddAtributoLugar(&v); err == nil {
+		if Lid, err := models.AddAtributoLugar(&v); Lid != 0 && err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = models.Alert{Type: "success", Code: "S_201", Body: v}
 		} else {
 			alertdb := structs.Map(err)
 			var code string
-			formatdata.FillStruct(alertdb["Code"], &code)
+			err := formatdata.FillStruct(alertdb["Code"], &code)
+			if err != nil {
+				code = "error de formato"
+			}
 			alert := models.Alert{Type: "error", Code: "E_" + code, Body: err.Error()}
 			c.Data["json"] = alert
 		}
@@ -61,7 +64,10 @@ func (c *AtributoLugarController) Post() {
 // @router /:id [get]
 func (c *AtributoLugarController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
-	id, _ := strconv.Atoi(idStr)
+	id, err := strconv.Atoi(idStr)
+	if err != nil {
+		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
+	}
 	v, err := models.GetAtributoLugarById(id)
 	if err != nil {
 		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
@@ -153,7 +159,10 @@ func (c *AtributoLugarController) Put() {
 		} else {
 			alertdb := structs.Map(err)
 			var code string
-			formatdata.FillStruct(alertdb["Code"], &code)
+			err := formatdata.FillStruct(alertdb["Code"], &code)
+			if err != nil {
+				code = "error de formato"
+			}
 			alert := models.Alert{Type: "error", Code: "E_" + code, Body: err.Error()}
 			c.Data["json"] = alert
 		}

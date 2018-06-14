@@ -109,7 +109,7 @@ func run_bee() {
 		go exe_cmd(str, wg)
 	}
 	time.Sleep(5 * time.Second)
-	deleteFile("script.sh")
+	//deleteFile("script.sh")
 	wg.Done()
 }
 
@@ -217,9 +217,13 @@ func iSendRequestToWhereBodyIsJson(method, endpoint, bodyreq string) error {
 	resBody = bodyr
 
 	if method == "POST" && resStatus == "201 Created" {
-		ioutil.WriteFile("./files/req/Yt2.json", resBody, 0644)
+
 		json.Unmarshal([]byte(bodyr), &savepostres)
 		Id = savepostres["Body"].(map[string]interface{})["Id"].(float64)
+		fmt.Println(Id)
+		Yt2 := savepostres["Body"]
+		otro, _ := json.Marshal(Yt2)
+		ioutil.WriteFile("./files/req/Yt2.json", otro, 0644)
 
 	}
 	return nil

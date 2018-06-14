@@ -1,12 +1,1 @@
-{
-  "Type": "success",
-  "Code": "S_201",
-  "Body": {
-    "Id": 3,
-    "Nombre": "May 15, 2018 at 3:32pm (-05)",
-    "Descripcion": "string",
-    "CodigoAbreviacion": "string",
-    "Activo": true,
-    "NumeroOrden": 0
-  }
-}
+{"Activo":true,"CodigoAbreviacion":"string","Descripcion":"string","Id":7,"Nombre":"Jun 14, 2018 at 9:13am (-05)","NumeroOrden":0}

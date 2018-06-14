@@ -42,7 +42,10 @@ func (c *LugarController) Post() {
 		} else {
 			alertdb := structs.Map(err)
 			var code string
-			formatdata.FillStruct(alertdb["Code"], &code)
+			err := formatdata.FillStruct(alertdb["Code"], &code)
+			if err != nil {
+				code = "error de formato"
+			}
 			alert := models.Alert{Type: "error", Code: "E_" + code, Body: err.Error()}
 			c.Data["json"] = alert
 		}
@@ -153,7 +156,10 @@ func (c *LugarController) Put() {
 		} else {
 			alertdb := structs.Map(err)
 			var code string
-			formatdata.FillStruct(alertdb["Code"], &code)
+			err := formatdata.FillStruct(alertdb["Code"], &code)
+			if err != nil {
+				code = "error de formato"
+			}
 			alert := models.Alert{Type: "error", Code: "E_" + code, Body: err.Error()}
 			c.Data["json"] = alert
 		}
