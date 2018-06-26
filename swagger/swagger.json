@@ -15,7 +15,7 @@
     },
     "basePath": "/v1",
     "paths": {
-        "/atributo_lugar/": {
+        "/atributo_lugar": {
             "get": {
                 "tags": [
                     "atributo_lugar"
@@ -188,7 +188,7 @@
                 }
             }
         },
-        "/lugar/": {
+        "/lugar": {
             "get": {
                 "tags": [
                     "lugar"
@@ -361,7 +361,7 @@
                 }
             }
         },
-        "/relacion_lugares/": {
+        "/relacion_lugares": {
             "get": {
                 "tags": [
                     "relacion_lugares"
@@ -560,7 +560,7 @@
                 }
             }
         },
-        "/tipo_lugar/": {
+        "/tipo_lugar": {
             "get": {
                 "tags": [
                     "tipo_lugar"
@@ -733,7 +733,7 @@
                 }
             }
         },
-        "/tipo_relacion_lugar/": {
+        "/tipo_relacion_lugar": {
             "get": {
                 "tags": [
                     "tipo_relacion_lugar"
@@ -906,7 +906,7 @@
                 }
             }
         },
-        "/valor_atributo_lugar/": {
+        "/valor_atributo_lugar": {
             "get": {
                 "tags": [
                     "valor_atributo_lugar"
