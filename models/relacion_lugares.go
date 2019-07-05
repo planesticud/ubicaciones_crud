@@ -7,6 +7,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 )
 
@@ -156,7 +157,7 @@ func DeleteRelacionLugares(id int) (err error) {
 // GetRelacionesPadre retrieves padre de un lugar
 func GetRelacionesPadre(id int) (v []RelacionLugares) {
 	o := orm.NewOrm()
-	if _, err := o.Raw(`Select lugar_padre,lugar_hijo from core_new.relacion_lugares 
+	if _, err := o.Raw(`Select lugar_padre,lugar_hijo from ` + beego.AppConfig.String("PGschemas") + `.relacion_lugares 
 		where lugar_hijo=` + strconv.Itoa(id)).QueryRows(&v); err == nil {
 	}
 	return v
@@ -173,7 +174,7 @@ func GetJerarquiaLugarById(id int) (v map[string]interface{}, err error) {
 	o := orm.NewOrm()
 	lugar := &Lugar{Id: id}
 	if err = o.Read(lugar); err == nil {
-		if _, err := o.Raw(`Select lugar_padre,lugar_hijo from core_new.relacion_lugares 
+		if _, err := o.Raw(`Select lugar_padre,lugar_hijo from ` + beego.AppConfig.String("PGschemas") + `.relacion_lugares 
 			where lugar_hijo=` + strconv.Itoa(id)).QueryRows(&relacionesLugares); err == nil {
 			if relacionesLugares == nil { //no tiene padre
 				o.Read(lugar.TipoLugar)
