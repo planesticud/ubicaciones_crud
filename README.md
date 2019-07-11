@@ -27,7 +27,7 @@ Definir los valores de las siguientes variables de entorno:
  - `UBICACIONES_CRUD__SCHEMA`: Esquema a utilizar en la base de datos
 
 ## Ejemplo
-UBICACIONES_HTTP_PORT=8085 UBICACIONES_CRUD__PGUSER=user UBICACIONES_CRUD__PGPASS=password UBICACIONES_CRUD__PGURLS=bd UBICACIONES_CRUD__PGDB=local UBICACIONES_CRUD__SCHEMA=schema_new bee run
+UBICACIONES_HTTP_PORT=8085 UBICACIONES_CRUD__PGUSER=user UBICACIONES_CRUD__PGPASS=password UBICACIONES_CRUD__PGURLS=localhost UBICACIONES_CRUD__PGDB=bd UBICACIONES_CRUD__SCHEMA=schema_new bee run
 
 ## Modelo BD
 ![image](https://github.com/planesticud/ubicaciones_crud/blob/develop/modelo_ubicaciones_crud.png).
