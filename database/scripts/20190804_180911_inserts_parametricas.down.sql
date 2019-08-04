@@ -1,0 +1,4 @@
+-- delete from ubicaciones.tipo_lugar;
+-- delete from ubicaciones.tipo_relacion_lugar;
+-- delete from ubicaciones.atributo_lugar;
+-- delete from ubicaciones.lugar;

@@ -1,0 +1,4 @@
+-- insert ubicaciones.tipo_lugar;
+-- insert ubicaciones.tipo_relacion_lugar;
+-- insert ubicaciones.atributo_lugar;
+-- insert ubicaciones.lugar;
