@@ -6,10 +6,10 @@ import (
 	"reflect"
 	"strconv"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type RelacionLugares struct {
@@ -18,6 +18,7 @@ type RelacionLugares struct {
 	LugarHijo         *Lugar             `orm:"column(lugar_hijo);rel(fk)"`
 	TipoRelacionLugar *TipoRelacionLugar `orm:"column(tipo_relacion_lugar);rel(fk)"`
 	Activo            bool               `orm:"column(activo)"`
+	FechaCreacion     string             `orm:"column(fecha_creacion);null"`
 	FechaModificacion string             `orm:"column(fecha_modificacion);null"`
 }
 
@@ -32,9 +33,8 @@ func init() {
 // AddRelacionLugares insert a new RelacionLugares into database and returns
 // last inserted Id on success.
 func AddRelacionLugares(m *RelacionLugares) (id int64, err error) {
-	var t time.Time
-	t = time.Now()
-	m.FechaModificacion = fmt.Sprintf("%s", t.UTC().Format(time.UnixDate))
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -134,9 +134,7 @@ func GetAllRelacionLugares(query map[string]string, fields []string, sortby []st
 func UpdateRelacionLugaresById(m *RelacionLugares) (err error) {
 	o := orm.NewOrm()
 	v := RelacionLugares{Id: m.Id}
-	var t time.Time
-	t = time.Now()
-	m.FechaModificacion = fmt.Sprintf("%s", t.UTC().Format(time.UnixDate))
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64

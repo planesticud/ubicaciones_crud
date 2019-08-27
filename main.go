@@ -1,14 +1,15 @@
 package main
 
 import (
-	_ "github.com/planesticud/ubicaciones_crud/routers"
-
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/plugins/cors"
 	_ "github.com/lib/pq"
-	"github.com/udistrital/utils_oas/apiStatusLib"
+	_ "github.com/planesticud/ubicaciones_crud/routers"
+	"github.com/udistrital/auditoria"
+	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
+	"github.com/udistrital/utils_oas/customerror"
 )
 
 func init() {
@@ -41,5 +42,7 @@ func main() {
 	logs.SetLogger(logs.AdapterFile, logPath)
 
 	apistatus.Init()
+	auditoria.InitMiddleware()
+	beego.ErrorController(&customerror.CustomErrorController{})
 	beego.Run()
 }

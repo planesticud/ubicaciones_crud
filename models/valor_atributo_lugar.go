@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type ValorAtributoLugar struct {
@@ -15,6 +15,7 @@ type ValorAtributoLugar struct {
 	Lugar             *Lugar         `orm:"column(lugar);rel(fk)"`
 	Valor             string         `orm:"column(valor)"`
 	AtributoLugar     *AtributoLugar `orm:"column(atributo_lugar);rel(fk)"`
+	FechaCreacion     string         `orm:"column(fecha_creacion);null"`
 	FechaModificacion string         `orm:"column(fecha_modificacion);null"`
 }
 
@@ -29,9 +30,8 @@ func init() {
 // AddValorAtributoLugar insert a new ValorAtributoLugar into database and returns
 // last inserted Id on success.
 func AddValorAtributoLugar(m *ValorAtributoLugar) (id int64, err error) {
-	var t time.Time
-	t = time.Now()
-	m.FechaModificacion = fmt.Sprintf("%s", t.UTC().Format(time.UnixDate))
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -131,9 +131,7 @@ func GetAllValorAtributoLugar(query map[string]string, fields []string, sortby [
 func UpdateValorAtributoLugarById(m *ValorAtributoLugar) (err error) {
 	o := orm.NewOrm()
 	v := ValorAtributoLugar{Id: m.Id}
-	var t time.Time
-	t = time.Now()
-	m.FechaModificacion = fmt.Sprintf("%s", t.UTC().Format(time.UnixDate))
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
