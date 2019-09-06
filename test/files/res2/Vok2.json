@@ -1,4 +1,12 @@
 {
   "title": "Example Schema",
-  "type": "array"
+  "type": "object",
+  "properties": {
+    "Id": { "type": "integer" },
+    "Nombre": { "type": "string" },
+    "TipoLugar":	{ "type": "TipoLugar" },
+    "Activo": { "type": "boolean" },
+    "FechaCreacion": { "type": "string" },
+    "FechaModificacion": { "type": "string" }
+  }
 }

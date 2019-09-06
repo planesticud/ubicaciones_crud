@@ -1,0 +1,12 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+    "Id": { "type": "integer" },
+    "Lugar":	{ "type": "Lugar" },
+    "Valor": { "type": "string" },
+    "AtributoLugar":	{ "type": "AtributoLugar" },
+    "FechaCreacion": { "type": "string" },
+    "FechaModificacion": { "type": "string" }
+  }
+}

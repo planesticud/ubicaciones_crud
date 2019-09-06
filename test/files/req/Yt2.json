@@ -1,12 +1,10 @@
 {
-  "Type": "success",
-  "Code": "S_201",
-  "Body": {
-    "Id": 5,
-    "Nombre": "Oct 25, 2018 at 1:13pm (-05)",
-    "Descripcion": "string",
-    "CodigoAbreviacion": "string",
-    "Activo": true,
-    "NumeroOrden": 0
-  }
+  "Id": 8,
+  "Nombre": "Sep 4, 2019 at 1:00pm (-05)",
+  "Descripcion": "string",
+  "CodigoAbreviacion": "string",
+  "Activo": true,
+  "NumeroOrden": 0,
+  "FechaCreacion": "2019-09-04T13:00:06.558870838-05:00",
+  "FechaModificacion": "2019-09-04T13:00:06.558921133-05:00"
 }

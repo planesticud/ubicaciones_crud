@@ -1,0 +1,13 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+    "Id": { "type": "integer" },
+    "LugarPadre":	{ "type": "LugarPadre" },
+    "LugarHijo":	{ "type": "LugarHijo" },
+    "TipoRelacionLugar":	{ "type": "TipoRelacionLugar" },
+    "Activo": { "type": "boolean" },
+    "FechaCreacion": { "type": "string" },
+    "FechaModificacion": { "type": "string" }
+  }
+}
