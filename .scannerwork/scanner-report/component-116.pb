@@ -1,1 +1,0 @@
-tcontrollers/atributo_lugar.go 2goXÅhrcontrollers/atributo_lugar.go

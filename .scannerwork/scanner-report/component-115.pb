@@ -1,1 +1,0 @@
-scontrollers :qtvurwrcontrollers
